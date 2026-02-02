@@ -31,6 +31,15 @@ No GT 2.0 material is normative for GT 1.0.
 - Investment narratives
 - Deployment roadmap
 
+## AI assistance
+
+AI tools are used strictly as drafting and structuring assistants under explicit human direction.
+They do not define research questions, introduce new research axes, determine conclusions,
+or author normative content.
+
+All architectural decisions, scope boundaries, and final texts are human-authored,
+reviewed, and approved.
+
 ## Current inputs
 
 - One anonymized external critical review (10 questions) used as a boundary anchor for GT 2.0.
