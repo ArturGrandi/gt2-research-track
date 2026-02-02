@@ -12,6 +12,10 @@ Baseline rule: GT 1.0 remains frozen and is not modified by GT 2.0.
 - No governance voting design
 - No normative references from GT 1.0 to GT 2.0
 
+Definition of Done
+- docs/GT2_DEFINITION_OF_DONE.md
+- All GT 2.0 progression is gated by this document
+  
 ## Active research axes
 - AXIS_A — Genesis & authority constraints
 - AXIS_B — Units, non-transferability & market surrogates
@@ -20,6 +24,10 @@ Baseline rule: GT 1.0 remains frozen and is not modified by GT 2.0.
 - AXIS_E — Verification at scale & Sybil containment
 - AXIS_F — AI defensive boundary
 - AXIS_G — Ethics, phase transitions & research duty
+  
+## Axes lock
+Research axes AXIS_A through AXIS_G are fixed.
+No new axes may be introduced without revising this status file.
 
 ## External inputs anchored
 - reviews/external_critical_review_A.md (anonymized)
