@@ -34,3 +34,31 @@ No new axes may be introduced without revising this status file.
 
 ## Next allowed action
 - Create and fill AXIS_A … AXIS_G files using the shared template
+
+---
+
+
+## Status — February 2026
+
+GT 2.0 is complete as a **research-only architectural framework**.
+
+All research axes (A–G) have been finalized, including:
+- genesis and authority boundaries;
+- unit semantics and non-transferability constraints;
+- economic invariants and verifiability;
+- temporal asymmetry and anti-pyramid structure;
+- verification at scale and sybil containment;
+- AI defensive boundaries;
+- ethics, phase transitions, and research duty.
+
+GT 2.0 introduces **no new formulas**, **no protocol commitments**, and **no economic guarantees**.
+It does not modify, override, or reinterpret any GT 1.0 formulas, parameters, or invariants.
+
+No deployment, governance, tokenization, monetization, or automation is implied.
+
+This repository represents a **closed research phase**, intended for:
+- architectural review,
+- critical analysis,
+- academic or technical discussion.
+
+Any future system, deployment, or governance model—if ever pursued—must be specified as a separate system with explicitly defined assumptions.
