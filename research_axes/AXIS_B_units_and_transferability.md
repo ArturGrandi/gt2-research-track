@@ -50,3 +50,27 @@ The following are considered transfer surrogates even if the base unit is “non
 - off-chain contracts that replicate a market in claim entitlements.
 
 GT 2.0 treats the existence of such surrogates as a failure mode to be contained, not as a supported feature.
+
+### B.2 — Non-Transferability Enforcement Boundary (GT 2.0, non-normative)
+
+This section clarifies the enforcement boundary of non-transferability guarantees provided by the protocol.
+
+The protocol enforces non-transferability strictly at the protocol layer:
+- claims are bound to a single biological human via protocol-accepted uniqueness mechanisms;
+- no protocol-level operation permits reassignment, delegation, or exchange of claim control;
+- no native interfaces expose transferable claim rights.
+
+The protocol explicitly does NOT:
+- guarantee prevention of all off-chain agreements or coercive arrangements;
+- detect or infer private contracts, custodial misuse, or social-layer delegation;
+- provide enforcement against real-world legal, social, or economic pressure.
+
+Any off-chain arrangement that replicates transferability is treated as:
+- an external violation of protocol intent;
+- outside the scope of protocol enforcement;
+- a containment problem, not a correctness failure of the protocol.
+
+The protocol MUST NOT introduce features, incentives, or abstractions that:
+- reduce the cost of creating transfer surrogates;
+- legitimize or standardize off-chain claim markets;
+- obscure the distinction between non-transferable units and bearer assets.
