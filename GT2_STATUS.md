@@ -35,6 +35,9 @@ No new axes may be introduced without revising this status file.
 ## Next allowed action
 - Create and fill AXIS_A … AXIS_G files using the shared template
 - Review and discuss: Appendix — Time Capital Purchase (Bonding Curve Formalization) [appendices/time_capital_purchase.md]
+- External reading pack: docs/REPO_READINESS.md + docs/HOW_TO_REVIEW.md
+- Grant one-pager: docs/GRANT_ABSTRACT.md
+- Outreach channels (no compensation implied): docs/OUTREACH_CHANNELS.md
 
 
 ---
