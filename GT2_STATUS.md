@@ -31,6 +31,7 @@ No new axes may be introduced without revising this status file.
 
 ## External inputs anchored
 - reviews/external_critical_review_A.md (anonymized)
+- Research artifact (Zenodo DOI): https://doi.org/10.5281/zenodo.18275133
 
 ## Next allowed action
 - Create and fill AXIS_A … AXIS_G files using the shared template

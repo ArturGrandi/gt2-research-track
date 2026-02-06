@@ -33,3 +33,12 @@ It is not a product, not tokenomics, not an investment proposal, and not a deplo
 - External review intake: collect critical comments and classify them by axis.
 - Grant packaging: stable one-page abstract + bibliography pointers (non-promotional).
 - Controlled reference implementation planning (separate repo / separate phase), only after external comments.
+
+## External research references
+
+This repository references the following external research artifact for
+contextual review and grant evaluation purposes only:
+
+- Zenodo DOI: https://doi.org/10.5281/zenodo.18275133
+
+This reference is non-normative and does not modify any GT 1.0 or GT 2.0 specifications.
