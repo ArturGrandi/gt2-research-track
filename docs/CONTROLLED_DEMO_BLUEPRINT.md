@@ -25,6 +25,13 @@ It is a verification scaffold.
 
 ## 2. Architectural Overview
 
+### State Machine Diagram (reference)
+
+[INIT] 
+  → (events) → [STATE_t] → (transition δ) → [STATE_t+1] → (check CR/SR) → [TRACE append]
+  
+If any invariant fails → [FAIL] (scenario invalidated; state is not committed)
+
 State → Event → Transition → Invariant Check → Trace
 
 The demo consists of:
@@ -75,12 +82,27 @@ The reference model assumes the following state components:
 - Pause status
 - Epoch / discrete time reference
 
+All state variables must correspond to existing GT 1.0 documented components.
+No new economic dimensions may be introduced in this blueprint.
+
 No additional state is introduced.
 
 ---
 
 ## 5. Event Classes
 
+### Event format (canonical for the demo)
+
+Each event is a pure function input:
+
+Event = (type, payload, meta)
+
+Constraints:
+- type is one of the declared event types
+- payload is fully explicit (no hidden reads)
+- meta includes epoch/time reference when needed
+- transition must be deterministic: δ(State, Event) → State'
+  
 The demo supports deterministic events including:
 
 - Claim (with proof)
@@ -92,6 +114,9 @@ The demo supports deterministic events including:
 - Epoch rollover
 
 Events must produce fully deterministic transitions.
+
+Event ordering must be explicitly defined in scenarios.
+No implicit scheduler or concurrency layer is modeled.
 
 ---
 
@@ -149,6 +174,48 @@ S21–S22: Governance boundary enforcement
 
 No market modeling is included.
 
+### Scenario template (Sxx)
+
+**Given:** explicit initial State snapshot  
+**When:** ordered event sequence E1..Ek  
+**Then:** expected post-state properties  
+**Pass:** all CR and SR hold after each step (or at scenario end, as specified)
+
+## 7.1 Scenario → Event Sequence (minimal mapping)
+
+Below are minimal deterministic event sequences for selected scenarios.
+All other scenarios are stubs until reviewers confirm the format.
+
+### S01 Verifier unavailable
+- E1: VERIFIER_DOWN
+- E2: CLAIM_ATTEMPT (proof = absent)
+Expected: revert; State unchanged; accumulation into TimeSafe continues (if modeled)
+
+### S04 Duplicate / replay submission
+- E1: CLAIM (proof valid, nullifier = X)
+- E2: CLAIM (proof valid, nullifier = X)
+Expected: E2 revert / no-op; no double-claim
+
+### S09 Stabilization fund insufficient
+- E1: SET_F_STAB_BELOW_THRESHOLD (via oracle read / state init)
+- E2: MINT_CYCLE
+Expected: redirect mint into TimeCapital; no circulation increase
+
+### S12 Zone boundary Z0→Z1
+- E1: PURCHASE_FROM_TIMECAPITAL (Q = Q_111)
+- E2: PURCHASE_FROM_TIMECAPITAL (Q = Q_111 + ε)
+Expected: P_buy(E2) >= P_buy(E1); Z1 never cheaper than Z0
+
+### S17 Stablecoin failure
+- E1: ORACLE_SIGNAL (stable_1 down 30%)
+- E2: WITHDRAW_ATTEMPT
+Expected: pause; withdrawals blocked; deterministic triggers
+
+### S19 GasReserve below minimum
+- E1: GASRESERVE_BELOW_MIN
+- E2: ETH_RAIL_PURCHASE_ATTEMPT
+Expected: disabled; no liquidity consumption
+
 ---
 
 ## 8. Explicit Non-Goals
@@ -173,3 +240,7 @@ The Controlled Reference Demo is a verification instrument.
 It strengthens formal clarity without altering research scope.
 
 It is not a transition to production.
+
+This document does not authorize or trigger any implementation effort.
+
+This blueprint is documentation-only; no implementation work is implied by its existence.
