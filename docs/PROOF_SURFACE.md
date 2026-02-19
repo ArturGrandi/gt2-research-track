@@ -113,7 +113,8 @@ A structural failure occurs if:
 4. State mutation occurs after failure
 5. Zone boundary monotonicity is broken
 6. Circulating supply increases without authorized rule path
-
+7. Derived variables produce inconsistent values (e.g., N_eff miscomputed)
+   
 Failure invalidates the scenario.
 
 Repeated failure indicates architectural inconsistency.
