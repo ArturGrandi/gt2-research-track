@@ -27,9 +27,8 @@ S = {
   Epoch
 }
 
-Where:
+Derived (not stored): N_eff = max(N_stat, N_verified)
 
-N_eff = max(N_stat, N_verified)
 
 All variables correspond to GT 1.0 documented components.
 
@@ -58,6 +57,8 @@ Constraints:
 
 If δ(S, E) is undefined → transition fails
 
+δ is a partial deterministic function.
+
 ---
 
 ## 3. Invariant Enforcement
@@ -68,12 +69,14 @@ S' = δ(S, E)
 
 The system evaluates:
 
-CR(S') ∧ SR(S')
+CR(S, E, S') ∧ SR(S, E, S')
 
 Where:
 
 CR = correctness invariants
 SR = safety invariants
+
+Treat invariants as predicates over a transition: CR(S, E, S') and SR(S, E, S').
 
 If any invariant fails:
 
@@ -140,7 +143,8 @@ It proves only:
 
 The protocol is considered structurally valid if:
 
-∀ event sequences within defined bounds,
+∀ event sequences within the scenario set (S01–S22) and any explicitly stated bounds,
+
 CR and SR invariants hold.
 
 This is an architectural property,
