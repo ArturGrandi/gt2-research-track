@@ -64,7 +64,7 @@ tests/
 
 
 ## Protocol State Machine
-
+Architecture diagram source: `controlled_demo/docs/state_machine.md`
 ```mermaid
 stateDiagram-v2
 

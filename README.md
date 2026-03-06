@@ -43,3 +43,20 @@ reviewed, and approved.
 ## Current inputs
 
 - One anonymized external critical review (10 questions) used as a boundary anchor for GT 2.0.
+---
+
+## Controlled Demo
+
+A deterministic reference state machine implementation with scenario validation.
+
+Location:
+controlled_demo/
+
+Architecture diagram:
+controlled_demo/docs/state_machine.md
+
+Run validation suite:
+PYTHONPATH=controlled_demo pytest controlled_demo/tests -vv
+
+Expected result:
+23 passed
