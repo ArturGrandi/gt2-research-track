@@ -80,3 +80,23 @@ Paused --> Paused : EPOCH_ADVANCE
 Paused --> Paused : ORACLE_UPDATE blocked
 
 Paused --> Active : EMERGENCY_TRIGGER
+
+---
+
+## Protocol Invariants
+
+The controlled demo validates the preservation of the following canonical invariants declared in GT documentation.
+
+| Invariant | Description | Verified by scenarios |
+|---|---|---|
+| I1 | Deterministic state evolution | S01, S05, S09 |
+| I2 | No retroactive invalidation | S03, S08 |
+| I3 | No hidden minting | S06, S07 |
+| I4 | Conservation of accounting | S07, S13, S14 |
+| I5 | Monotonic protocol price (within zone definition) | S12, S13 |
+| I6 | Layer separation (no governance / incentives in demo) | architectural constraint |
+
+These invariants originate from GT 1.0 / GT 2.0 documentation and are not modified by this demo.
+
+The controlled demo serves purely as a deterministic verification scaffold.
+
