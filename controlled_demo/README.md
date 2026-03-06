@@ -100,3 +100,19 @@ These invariants originate from GT 1.0 / GT 2.0 documentation and are not modifi
 
 The controlled demo serves purely as a deterministic verification scaffold.
 
+---
+
+## Quick Start
+
+Clone the repository:
+git clone https://github.com/ArturGrandi/gt2-research-track
+
+cd gt2-research-track
+
+Run the controlled demo validation suite:
+PYTHONPATH=controlled_demo pytest controlled_demo/tests -vv
+
+Expected output:
+23 passed
+
+This confirms deterministic protocol behavior and invariant preservation across scenarios S01–S22.
