@@ -1,5 +1,7 @@
 # GT Controlled Demo State Machine
 
+Figure: Deterministic GT Protocol State Machine used in the controlled validation demo.
+
 ```mermaid
 stateDiagram-v2
 
