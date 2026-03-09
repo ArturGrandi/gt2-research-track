@@ -1,7 +1,6 @@
 # Controlled Demo — GT Protocol State Machine
 
-This directory contains a controlled reference implementation of the GT protocol
-state machine used for research validation.
+This directory contains a controlled reference implementation of the GT protocol state machine used for research validation.
 
 The model implements a deterministic transition function:
 
@@ -13,79 +12,24 @@ delta(State, Event) → State
 
 controlled_demo/
 
-model/
-Core protocol state machine implementation
-
-rules/
-Protocol invariants and validation helpers
-
-scenarios/
-Deterministic scenario definitions
-
-tests/
-Scenario validation suite (S01–S22)
+model/ — core protocol state machine implementation  
+rules/ — protocol invariants and validation helpers  
+scenarios/ — deterministic scenario definitions  
+tests/ — scenario validation suite (S01–S22)
 
 ---
-
-## Architecture
-
-The system consists of:
-
-State  
-Event  
-Transition function  
-
-Core transition:
-
-State + Event → New State
-
-Implemented in:
-
-controlled_demo/model/transition.py
-
----
-
-## Demo Structure
-
-controlled_demo/
-
-model/
-    Core protocol state machine implementation
-
-rules/
-    Protocol invariants and validation helpers
-
-scenarios/
-    Deterministic scenario definitions
-
-tests/
-    Scenario validation suite (S01–S22)
-
-
 
 ## Protocol State Machine
-Architecture diagram source: `controlled_demo/docs/state_machine.md`
-```mermaid
-stateDiagram-v2
 
-[*] --> Active
+Architecture diagram:
 
-Active --> Active : EPOCH_ADVANCE
-Active --> Active : ORACLE_UPDATE
-Active --> Active : MINT_TRIGGER (coverage OK)
-
-Active --> Paused : MINT_TRIGGER (coverage fail)
-
-Paused --> Paused : EPOCH_ADVANCE
-Paused --> Paused : ORACLE_UPDATE blocked
-
-Paused --> Active : EMERGENCY_TRIGGER
+[State Machine Specification](docs/state_machine.md)
 
 ---
 
 ## Protocol Invariants
 
-The controlled demo validates the preservation of the following canonical invariants declared in GT documentation.
+The controlled demo validates the preservation of canonical invariants declared in GT documentation.
 
 | Invariant | Description | Verified by scenarios |
 |---|---|---|
@@ -93,8 +37,8 @@ The controlled demo validates the preservation of the following canonical invari
 | I2 | No retroactive invalidation | S03, S08 |
 | I3 | No hidden minting | S06, S07 |
 | I4 | Conservation of accounting | S07, S13, S14 |
-| I5 | Monotonic protocol price (within zone definition) | S12, S13 |
-| I6 | Layer separation (no governance / incentives in demo) | architectural constraint |
+| I5 | Monotonic protocol price | S12, S13 |
+| I6 | Layer separation (no governance/incentives in demo) | architectural constraint |
 
 These invariants originate from GT 1.0 / GT 2.0 documentation and are not modified by this demo.
 
@@ -105,14 +49,17 @@ The controlled demo serves purely as a deterministic verification scaffold.
 ## Quick Start
 
 Clone the repository:
+
 git clone https://github.com/ArturGrandi/gt2-research-track
 
 cd gt2-research-track
 
 Run the controlled demo validation suite:
+
 PYTHONPATH=controlled_demo pytest controlled_demo/tests -vv
 
 Expected output:
+
 23 passed
 
 This confirms deterministic protocol behavior and invariant preservation across scenarios S01–S22.
