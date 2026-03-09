@@ -50,13 +50,21 @@ reviewed, and approved.
 A deterministic reference state machine implementation with scenario validation.
 
 Location:
-controlled_demo/
+
+[controlled_demo/](controlled_demo)
 
 Architecture diagram:
-controlled_demo/docs/state_machine.md
+
+[GT Protocol State Machine](controlled_demo/docs/state_machine.md)
+
+Architecture documentation:
+
+[Controlled Demo Architecture](controlled_demo/docs/ARCHITECTURE.md)
 
 Run validation suite:
+
 PYTHONPATH=controlled_demo pytest controlled_demo/tests -vv
 
 Expected result:
+
 23 passed
