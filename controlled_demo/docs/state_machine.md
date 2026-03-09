@@ -3,15 +3,15 @@
 ```mermaid
 stateDiagram-v2
 
-[*] --> Active
+    [*] --> Active
 
-Active --> Active : EPOCH_ADVANCE
-Active --> Active : ORACLE_UPDATE
-Active --> Active : MINT_TRIGGER (coverage OK)
+    Active --> Active : EPOCH_ADVANCE
+    Active --> Active : ORACLE_UPDATE
+    Active --> Active : MINT_TRIGGER (coverage OK)
 
-Active --> Paused : MINT_TRIGGER (coverage fail)
+    Active --> Paused : MINT_TRIGGER (coverage fail)
 
-Paused --> Paused : EPOCH_ADVANCE
-Paused --> Paused : ORACLE_UPDATE blocked
+    Paused --> Paused : EPOCH_ADVANCE
+    Paused --> Paused : ORACLE_UPDATE blocked
 
-Paused --> Active : EMERGENCY_TRIGGER
+    Paused --> Active : EMERGENCY_TRIGGER
